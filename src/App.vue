@@ -1,26 +1,54 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Header />
+    <SearchBar @handle-submit="handleSubmit"/>
+    <Results :data="this.queryData"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import SearchBar from './components/SearchBar.vue'
+import Results from './components/Results.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    SearchBar,
+    Results
+  },
+  data() {
+    return {
+      queryData: []
+    }
+  },
+  methods: {
+    async handleSubmit(query) {
+      try {
+        const response = await fetch(`http://localhost:5000/search/${query}`)
+        const { data } = await response.json()
+        this.queryData = data
+        console.log(data)
+      } 
+      catch(e) {
+        console.log(e)
+      }
+    }
   }
 }
 </script>
 
 <style>
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Hind', Arial, sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
