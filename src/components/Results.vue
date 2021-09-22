@@ -1,5 +1,6 @@
 <template>
     <div class="results-wrapper">
+        <h2>Results for "{{query}}"</h2>
         <div :key="result.slug" v-for="result in data"> 
             <SingleResult :result="result"/>
         </div>
@@ -16,9 +17,16 @@ export default {
         SingleResult
     },
     props: {
-        data: Array
+        data: Array,
+        query: String
     }
 }
-
 </script>
 
+<style scoped>
+
+.results-wrapper {
+    margin: 0 10vw 0 10vw;
+}
+
+</style>
