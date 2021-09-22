@@ -1,6 +1,6 @@
 <template>
     <div class='welcome-wrapper'>
-        <p>Welcome!</p>
+        <p>Welcome!!</p>
     </div>
 </template>
 
