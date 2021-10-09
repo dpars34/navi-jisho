@@ -58,7 +58,7 @@ export default {
 <style>
 
 .single-result-wrapper {
-    margin: 2rem 0;
+    margin: 0 0 4rem 0;
 }
 
 .result-head {
