@@ -5,8 +5,8 @@
                 <p class='reading-heading'>{{result.japanese[0].word !== undefined ? result.japanese[0].reading : null}}</p>
                 <h2 class='word-heading'>{{result.japanese[0].word !== undefined ? result.japanese[0].word : result.japanese[0].reading }}</h2>
                 <div class="head-bubble-area">
-                    <Bubble v-if="result.is_common" color="#FAFAFA" bgcolor="#07831A" text="C " fontsize="1.4rem"/>
-                    <Bubble v-if="result.jlpt.length >= 1" color="#FAFAFA" bgcolor="#0663A6" :text="this.jlpt" fontsize="1.4rem"/>
+                    <Bubble v-if="result.is_common" color="#FAFAFA" bgcolor="#07831A" text="C " fontsize="1.4rem" tooltip="Common Word"/>
+                    <Bubble v-if="result.jlpt.length >= 1" color="#FAFAFA" bgcolor="#0663A6" :text="this.jlpt" fontsize="1.4rem" :tooltip="`JLPT Level: ${this.jlpt}`"/>
                 </div>
             </div>
             <div class='head-right'>

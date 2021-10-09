@@ -32,7 +32,7 @@ header {
 
 .navi-logo {
     height: 50px;
-    margin: .5rem 1rem .5rem 0;
+    margin: .5rem 2rem .5rem 0;
 }
 
 .flex {
