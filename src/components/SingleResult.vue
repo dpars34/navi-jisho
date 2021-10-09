@@ -21,9 +21,18 @@
             <div class="definitions">
                 <div class='body-definition-area' :key="sense.english_definitions" v-for="(sense, index) in result.senses">
                     <Bubble class='definition-number-bubble' color="#111111" bgcolor="#F4C008" :text="index + 1" fontsize="1.4rem"/>
-                    <div class='body-definition-list' :key="meaning" v-for="(meaning, index) in sense.english_definitions">
-                        <p class='body-definition-text'>{{meaning}}</p>
-                        <pre class='body-definition-text' v-if="index !== (sense.english_definitions.length - 1)"> / </pre>
+                    <div class="bubble-right">
+                        <div class='body-definition-list' :key="meaning" v-for="(meaning, index) in sense.english_definitions">
+                            <p class='body-definition-text'>{{meaning}}</p>
+                            <pre class='body-definition-text' v-if="index !== (sense.english_definitions.length - 1)"> / </pre>
+                        </div>
+                        <div v-if="sense.see_also.length > 0" class="see-also-area">
+                            <p class='see-also-text'>see also:<pre class='see-also-text'> </pre></p>
+                            <div class='see-also-list' :key='alternative' v-for='(alternative, index) in sense.see_also'>
+                                <p class='see-also-text'>{{alternative}}</p>
+                                <pre class='see-also-text' v-if="index !== (sense.see_also.length - 1)"> / </pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,8 +125,13 @@ export default {
     margin-right: 1rem;
 }
 
+.bubble-right {
+    margin-top: 6px;
+}
+
 .body-definition-area {
     margin: 1.5rem 1rem 1rem calc(1rem + 10px);
+    display: flex;
 }
 
 .body-definition-list {
@@ -127,6 +141,21 @@ export default {
 .body-definition-text {
     display: inline-block;
     margin: 0;
+    padding: 0;
+    font-family: 'Hind', Arial, sans-serif;
+}
+
+.see-also-area {
+    color: #7B7B7B;
+}
+
+.see-also-list {
+    display: inline-block;
+}
+
+.see-also-text {
+    display: inline-block;
+    margin: 1rem 0 0 0;
     padding: 0;
     font-family: 'Hind', Arial, sans-serif;
 }

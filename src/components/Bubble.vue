@@ -45,6 +45,7 @@ export default {
     vertical-align: middle;
     line-height: 39px;
     font-family: 'Hind', Arial, sans-serif;
+    flex-shrink: 0;
 }
 
 .bubble:hover {
