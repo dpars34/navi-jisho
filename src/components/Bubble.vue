@@ -5,7 +5,7 @@
         </div>
 
         <div v-if="tooltip" :style=tooltipStyle class="tooltip">
-            {{tooltip}}
+            <p>{{tooltip}}</p>
         </div>
     </div>
 </template>
@@ -27,7 +27,7 @@ export default {
         },
 
         tooltipStyle () {
-            return `border: solid 3px ${this.bgcolor};`
+            return `border: solid 2px ${this.bgcolor};`
         }
     }
 }
@@ -79,6 +79,9 @@ export default {
     padding: 0 0.5rem;
 }
 
-
+p {
+    margin: 0;
+    padding: 0;
+}
 
 </style>

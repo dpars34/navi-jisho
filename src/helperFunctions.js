@@ -12,3 +12,26 @@ export function jlptRender(param) {
             return 'N5';
       }
 }
+
+export function partsOfSpeechRender(param) {
+
+    switch(param) {
+        case 'Noun':
+            return 'Nou';
+        case 'Suru verb':
+            return 'する';
+    }
+
+    if (param.substring(0, 5) === "Godan") {
+        return "Gdn"
+    }
+
+    const newArray = []
+    const wordArray = param.split('')
+
+    for (let i = 0; i < 4; i++) {
+        newArray.push(wordArray[i])
+    }
+
+    return newArray.join('')
+}

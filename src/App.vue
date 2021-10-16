@@ -41,7 +41,7 @@ export default {
     }
   },
   created() {
-    this.handleSubmit('hello')
+    this.handleSubmit('discover')
   }
 }
 </script>
