@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @handle-submit="handleSubmit"/>
-    <Results v-if="searched" :data="this.queryData" :query="this.searchQuery"/>
+    <Results @handle-submit="handleSubmit" v-if="searched" :data="this.queryData" :query="this.searchQuery"/>
     <Welcome v-else/>
   </div>
 </template>

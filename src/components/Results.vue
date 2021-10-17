@@ -2,7 +2,7 @@
     <div class="results-wrapper">
         <h2>Results for "{{query}}"</h2>
         <div :key="result.slug" v-for="result in data"> 
-            <SingleResult :result="result"/>
+            <SingleResult @handle-submit="handleSubmit" :result="result"/>
         </div>
     </div>
 </template>
@@ -19,6 +19,11 @@ export default {
     props: {
         data: Array,
         query: String
+    },
+    methods: {
+        handleSubmit(query) {
+            this.$emit('handle-submit', query)
+        }
     }
 }
 </script>

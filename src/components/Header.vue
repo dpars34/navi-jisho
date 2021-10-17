@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="flex">
-            <img class="navi-logo" src="../assets/navijisho-logo2.png" alt="navijisho logo">
+            <a href="/"><img class="navi-logo" src="../assets/navijisho-logo2.png" alt="navijisho logo"></a>
             <SearchBar @handle-submit="handleSubmit"/>
         </div>
     </header>

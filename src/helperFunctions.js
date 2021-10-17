@@ -24,6 +24,8 @@ export function partsOfSpeechRender(param) {
             return 'Num';
         case 'Na-adjective (keiyodoshi)':
             return 'な';
+        case 'I-adjective (keiyoushi)':
+            return 'い';
     }
 
     if (param.substring(0, 5) === 'Godan') {

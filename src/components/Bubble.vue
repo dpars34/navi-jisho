@@ -1,5 +1,5 @@
 <template>
-    <div :style=style class="bubble">
+    <div :style=style :class="`bubble ${tooltip ? 'hoverable' : ''}`">
         <div class="inner-text">
             {{text}}
         </div>
@@ -48,7 +48,7 @@ export default {
     flex-shrink: 0;
 }
 
-.bubble:hover {
+.hoverable:hover {
     cursor: pointer;
 }
 

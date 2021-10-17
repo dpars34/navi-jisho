@@ -20,31 +20,33 @@
         <div class='result-body'>
             <div class="definitions">
                 <div class='body-definition-area' :key="sense.english_definitions" v-for="(sense, index) in result.senses">
-                    <Bubble class='definition-number-bubble' color="#111111" bgcolor="#F4C008" :text="index + 1" fontsize="1.4rem"/>
-                    <div class="right-of-number">
-                        <div class="definition">
-                            <div class='body-definition-list' :key="meaning" v-for="(meaning, index) in sense.english_definitions">
-                                <p class='body-definition-text'>{{meaning}}</p>
-                                <pre class='body-definition-text' v-if="index !== (sense.english_definitions.length - 1)"> / </pre>
+                    <div class="bubbles-and-text">
+                        <Bubble class='definition-number-bubble' color="#111111" bgcolor="#F4C008" :text="index + 1" fontsize="1.4rem"/>
+                        <div class="right-of-number">
+                            <div class="definition">
+                                <div class='body-definition-list' :key="meaning" v-for="(meaning, index) in sense.english_definitions">
+                                    <p class='body-definition-text'>{{meaning}}</p>
+                                    <pre class='body-definition-text' v-if="index !== (sense.english_definitions.length - 1)"> / </pre>
+                                </div>
                             </div>
-                            <div v-if="sense.see_also.length > 0" class="see-also-area">
-                                <p class='see-also-text'>see also:<pre class='see-also-text'> </pre></p>
-                                <div class='see-also-list' :key='alternative' v-for='(alternative, index) in sense.see_also'>
-                                    <p class='see-also-text'>{{alternative}}</p>
-                                    <pre class='see-also-text' v-if="index !== (sense.see_also.length - 1)"> / </pre>
+                            <div class="right-bubbles">
+                                <div class="parts-of-speech-bubbles" :key='part' v-for='part in sense.parts_of_speech'>
+                                    <Bubble color="#FAFAFA" bgcolor="#A60606" :text="partsOfSpeechRender(part)" fontsize="1rem" :tooltip="part"/>
+                                </div>
+                                <div class="tags-bubbles" :key='tag' v-for='tag in sense.tags'>
+                                    <Bubble color="#FAFAFA" bgcolor="#757575" :text="tagsRender(tag)" fontsize="1rem" :tooltip="tag"/>
+                                </div>
+                                <div @click='openLink(sense.links[0].url)' v-if="sense.links.length > 0" class="wiki-arrow">
+                                    <i class="fas fa-arrow-right"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="right-bubbles">
-                            <div class="parts-of-speech-bubbles" :key='part' v-for='part in sense.parts_of_speech'>
-                                <Bubble color="#FAFAFA" bgcolor="#A60606" :text="partsOfSpeechRender(part)" fontsize="1rem" :tooltip="part"/>
-                            </div>
-                            <div class="tags-bubbles" :key='tag' v-for='tag in sense.tags'>
-                                <Bubble color="#FAFAFA" bgcolor="#757575" :text="tagsRender(tag)" fontsize="1rem" :tooltip="tag"/>
-                            </div>
-                            <div @click='openLink(sense.links[0].url)' v-if="sense.links.length > 0" class="wiki-arrow">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
+                    </div>
+                    <div v-if="sense.see_also.length > 0" class="see-also-area">
+                        <p class='see-also-text'>see also:<pre class='see-also-text'> </pre></p>
+                        <div class='see-also-list' :key='alternative' v-for='(alternative, index) in sense.see_also'>
+                            <p @click='handleSubmit(alternative)' class='see-also-text see-also-link'>{{alternative}}</p>
+                            <pre class='see-also-text' v-if="index !== (sense.see_also.length - 1)"> / </pre>
                         </div>
                     </div>
                 </div>
@@ -87,6 +89,9 @@ export default {
         },
         openLink (url) {
             window.open(url, '_blank').focus()
+        },
+        handleSubmit(query) {
+            this.$emit('handle-submit', query)
         }
     },
     components: {
@@ -168,6 +173,9 @@ export default {
 
 .body-definition-area {
     margin: 1.5rem 1rem 1rem calc(1rem + 10px);
+}
+
+.bubbles-and-text {
     display: flex;
 }
 
@@ -184,6 +192,7 @@ export default {
 
 .see-also-area {
     color: #7B7B7B;
+    margin-left: calc(35px + 1rem);
 }
 
 .see-also-list {
@@ -195,6 +204,11 @@ export default {
     margin: 1rem 0 0 0;
     padding: 0;
     font-family: 'Hind', Arial, sans-serif;
+}
+
+.see-also-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .right-bubbles {
@@ -210,7 +224,7 @@ export default {
     top: 3px;
 }
 
-@keyframes zoom-in {
+@keyframes arrow-move {
     from {
         transform: translateX(0);
     }
@@ -220,7 +234,7 @@ export default {
 }
 
 .wiki-arrow:hover {
-    animation: zoom-in 0.3s forwards;
+    animation: arrow-move 0.3s forwards;
     cursor: pointer;
 }
 

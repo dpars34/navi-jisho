@@ -47,7 +47,7 @@ export default {
     padding: 0.5rem;
     margin-left: 0.5rem;
     width: calc(100% - 50px);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .underline {
@@ -63,6 +63,20 @@ export default {
     color: #474747;
     position: relative;
     top: 3px;
+}
+
+@keyframes arrow-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(0.2rem);
+    }
+}
+
+.search-button:hover {
+    animation: arrow-move 0.3s forwards;
+    cursor: pointer;
 }
 
 </style>
