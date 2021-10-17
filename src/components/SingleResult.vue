@@ -40,7 +40,10 @@
                                 <Bubble color="#FAFAFA" bgcolor="#A60606" :text="partsOfSpeechRender(part)" fontsize="1rem" :tooltip="part"/>
                             </div>
                             <div class="tags-bubbles" :key='tag' v-for='tag in sense.tags'>
-                                {{tags}}
+                                <Bubble color="#FAFAFA" bgcolor="#757575" :text="tagsRender(tag)" fontsize="1rem" :tooltip="tag"/>
+                            </div>
+                            <div @click='openLink(sense.links[0].url)' v-if="sense.links.length > 0" class="wiki-arrow">
+                                <i class="fas fa-arrow-right"></i>
                             </div>
                         </div>
                     </div>
@@ -64,7 +67,7 @@
 <script>
 
 import Bubble from './Bubble.vue'
-import { jlptRender, partsOfSpeechRender } from '../helperFunctions'
+import { jlptRender, partsOfSpeechRender, tagsRender } from '../helperFunctions'
 
 export default {
     name: 'SingleResult',
@@ -77,6 +80,12 @@ export default {
         },
         partsOfSpeechRender(param) {
             return partsOfSpeechRender(param)
+        },
+        tagsRender(param) {
+            return tagsRender(param)
+        },
+        openLink (url) {
+            window.open(url, '_blank').focus()
         }
     },
     components: {
@@ -192,13 +201,35 @@ export default {
     gap: 0.5rem;
 }
 
+.wiki-arrow {
+    all: unset;
+    font-size: 1.5rem;
+    color: #474747;
+    position: relative;
+    top: 3px;
+}
+
+@keyframes zoom-in {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(0.2rem);
+    }
+}
+
+.wiki-arrow:hover {
+    animation: zoom-in 0.3s forwards;
+    cursor: pointer;
+}
+
 .other-forms-area {
     margin: 1.5rem 1rem 1rem calc(1rem + 10px);
     max-width: 700px;
 }
 
 .arrow-down {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #474747;
 }
 
