@@ -60,6 +60,7 @@
                     <pre class='single-form-text' v-if="index !== (result.japanese.length - 1)">  /  </pre>
                 </div>
             </div>
+            
         </div>
     </div>
 </template>
