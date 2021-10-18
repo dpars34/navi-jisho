@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header @handle-submit="handleSubmit"/>
-    <Results @handle-submit="handleSubmit" v-if="searched" :data="this.queryData" :query="this.searchQuery"/>
+    <Loading v-if='loading'/>
+    <Results @handle-submit="handleSubmit" v-if="searched && !loading" :data="this.queryData" :query="this.searchQuery"/>
     <Welcome v-else/>
   </div>
 </template>
@@ -10,6 +11,7 @@
 import Header from './components/Header.vue'
 import Results from './components/Results.vue'
 import Welcome from './components/Welcome.vue'
+import Loading from './components/Loading.vue'
 
 export default {
   name: 'App',
@@ -17,23 +19,27 @@ export default {
     Header,
     Results,
     Welcome,
+    Loading
   },
   data() {
     return {
       queryData: [],
       searchQuery: '',
       searched: false,
+      loading: false
     }
   },
   methods: {
     async handleSubmit(query) {
       try {
+        this.loading = true
         const response = await fetch(`http://localhost:5000/search/${query}`)
         const { data } = await response.json()
         this.queryData = data
         this.searched = true
         this.searchQuery = query
         console.log(data)
+        this.loading = false
       } 
       catch(e) {
         console.log(e)

@@ -1,5 +1,4 @@
 <template>
-    <div class="flex">
         <div class="search-bar-wrapper">
             <form @submit="handleSubmit">
                 <input v-model="query" class="search-bar" name="search-bar" type="text" autocomplete="off" placeholder="Search for something...">
@@ -7,8 +6,6 @@
             </form>
             <div class="underline"></div>
         </div>
-    
-    </div>
 </template>
 
 <script>
@@ -32,14 +29,9 @@ export default {
 
 <style scoped>
 
-.flex {
-    display: flex;
-    width: 100%;
-}
-
 .search-bar-wrapper{
     margin: 0.5rem 0;
-    width: 100%;
+    flex: 1;
 }
 
 .search-bar {

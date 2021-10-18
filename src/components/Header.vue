@@ -27,7 +27,12 @@ export default {
 <style scoped>
 
 header {
-    padding: 0.5rem 10vw 0 10vw;
+    position: fixed;
+    top: 0;
+    background-color: #FAFAFA;
+    z-index: 99;
+    width: 100%;
+    border-bottom: solid 1px #D7D7D7;
 }
 
 .navi-logo {
@@ -37,6 +42,7 @@ header {
 
 .flex {
     display: flex;
+    padding: 0.5rem 10vw 0 10vw;
 }
 
 .nav-link {
