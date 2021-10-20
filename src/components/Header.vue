@@ -37,12 +37,12 @@ header {
 
 .navi-logo {
     height: 45px;
-    margin: .5rem 2rem .5rem 0;
+    margin: .5rem 2rem 0 0;
 }
 
 .flex {
     display: flex;
-    padding: 0.5rem 10vw 0 10vw;
+    padding: 0 10vw 0 10vw;
 }
 
 .nav-link {
