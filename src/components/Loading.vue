@@ -26,7 +26,7 @@ export default {
 <style scoped>
 
 .loading-wrapper {    
-    height: 100vh;
+    height: 20rem;
     width: 100vw;
     display: flex;
     justify-content: center;

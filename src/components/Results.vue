@@ -31,7 +31,7 @@ export default {
 <style scoped>
 
 .results-wrapper {
-    margin: 110px 10vw 0 10vw;
+    margin: 0 10vw 0 10vw;
 }
 
 </style>

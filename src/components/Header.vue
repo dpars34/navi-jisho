@@ -2,20 +2,14 @@
     <header>
         <div class="flex">
             <a href="/"><img class="navi-logo" src="../assets/navijisho-logo2.png" alt="navijisho logo"></a>
-            <SearchBar @handle-submit="handleSubmit"/>
         </div>
     </header>
 </template>
 
 <script>
 
-import SearchBar from './SearchBar.vue'
-
 export default {
     name: 'Header',
-    components: {
-        SearchBar
-    },
     methods: {
         handleSubmit(query) {
             this.$emit('handle-submit', query)
@@ -37,7 +31,6 @@ header {
 
 .navi-logo {
     height: 45px;
-    margin: .5rem 2rem .5rem 0;
 }
 
 .flex {

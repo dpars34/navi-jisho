@@ -1,9 +1,10 @@
 <template>
   <div>
     <Header @handle-submit="handleSubmit"/>
+    <SearchBarArea />
     <Loading v-if='loading'/>
     <Results @handle-submit="handleSubmit" v-if="searched && !loading" :data="this.queryData" :query="this.searchQuery"/>
-    <Welcome v-else/>
+    <Welcome v-if="!searched && !loading"/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Header from './components/Header.vue'
 import Results from './components/Results.vue'
 import Welcome from './components/Welcome.vue'
 import Loading from './components/Loading.vue'
+import SearchBarArea from './components/SearchBarArea.vue'
 
 export default {
   name: 'App',
@@ -19,7 +21,8 @@ export default {
     Header,
     Results,
     Welcome,
-    Loading
+    Loading,
+    SearchBarArea
   },
   data() {
     return {
@@ -46,6 +49,9 @@ export default {
       }
     }
   },
+  created() {
+    this.handleSubmit('discover')
+  }
 }
 </script>
 
