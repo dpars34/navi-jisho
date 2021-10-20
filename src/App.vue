@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @handle-submit="handleSubmit"/>
-    <SearchBarArea />
+    <SearchBarArea @handle-submit="handleSubmit"/>
     <Loading v-if='loading'/>
     <Results @handle-submit="handleSubmit" v-if="searched && !loading" :data="this.queryData" :query="this.searchQuery"/>
     <Welcome v-if="!searched && !loading"/>

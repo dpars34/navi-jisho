@@ -1,6 +1,6 @@
 <template>
     <div class="search-bar-area">
-        <SearchBar />
+        <SearchBar @handle-submit="handleSubmit"/>
     </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
     name: 'SearchBarArea',
     components: {
         SearchBar
+    },
+    methods: {
+        handleSubmit(query) {
+            this.$emit('handle-submit', query)
+        }
     }
 }
 
@@ -20,7 +25,8 @@ export default {
 <style scoped>
 
 .search-bar-area {
-    margin: 5rem 10vw 2rem 10vw;
+    margin: 1rem 10vw 2rem 10vw;
+    position: sticky;
 }
 
 </style>

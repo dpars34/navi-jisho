@@ -10,19 +10,12 @@
 
 export default {
     name: 'Header',
-    methods: {
-        handleSubmit(query) {
-            this.$emit('handle-submit', query)
-        }
-    }
 }
 </script>
 
 <style scoped>
 
 header {
-    position: fixed;
-    top: 0;
     background-color: #FAFAFA;
     z-index: 99;
     width: 100%;
