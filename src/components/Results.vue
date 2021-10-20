@@ -14,7 +14,7 @@ import SingleResult from './SingleResult.vue'
 export default {
     name: 'Results',
     components: {
-        SingleResult
+        SingleResult,
     },
     props: {
         data: Array,

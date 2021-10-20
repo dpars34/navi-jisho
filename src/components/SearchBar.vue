@@ -39,7 +39,7 @@ export default {
     padding: 0.5rem;
     margin-left: 0.5rem;
     width: calc(100% - 50px);
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .underline {

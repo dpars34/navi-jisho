@@ -46,9 +46,6 @@ export default {
       }
     }
   },
-  created() {
-    this.handleSubmit('discover')
-  }
 }
 </script>
 

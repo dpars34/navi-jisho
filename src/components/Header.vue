@@ -36,7 +36,7 @@ header {
 }
 
 .navi-logo {
-    height: 50px;
+    height: 45px;
     margin: .5rem 2rem .5rem 0;
 }
 

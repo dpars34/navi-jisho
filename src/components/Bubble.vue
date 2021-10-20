@@ -79,6 +79,7 @@ export default {
     border-radius: 10px;
     padding: 0 0.5rem;
     line-height: normal;
+    z-index: 10;
 }
 
 .tooltip-text {
