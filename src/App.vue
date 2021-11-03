@@ -60,6 +60,5 @@ html, body {
   font-family: 'Hind', 'Noto Sans JP', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
 }
 </style>
