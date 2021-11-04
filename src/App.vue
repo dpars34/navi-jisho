@@ -45,6 +45,7 @@ export default {
   methods: {
     async handleSubmit(query) {
       try {
+        window.scrollTo(0, 0)
         this.loading = true
         this.failed = false;
         const response = await fetch(`http://localhost:5000/search/${query}`)
@@ -59,7 +60,6 @@ export default {
         this.searchQuery = query
         console.log(data)
         this.loading = false
-        window.scrollTo(0, 0)
       } 
       catch(e) {
         console.log(e)

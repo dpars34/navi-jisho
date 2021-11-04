@@ -26,7 +26,7 @@ export default {
 <style scoped>
 
 .loading-wrapper {    
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -38,6 +38,7 @@ export default {
     display: flex;
     gap: 1rem;
     animation: bounce ease-in;
+    padding-top: 4rem;
 }
 
 @keyframes bounce {
