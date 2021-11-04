@@ -113,6 +113,12 @@ export default {
     align-items: center;
 }
 
+@media (max-width: 600px) {
+    .result-head {
+        flex-wrap: wrap;
+    }
+}
+
 .head-left {
     white-space: nowrap;
 }
@@ -141,12 +147,19 @@ export default {
 
 .head-right {
     margin-left: 2rem;
+    overflow-wrap: break-word;
 }
 
 .head-definition-list {
     display: inline-block;
     font-size: 2rem;
     vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+    .head-definition-list {
+        display: none;
+    }
 }
 
 .head-definition-text {

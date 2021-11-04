@@ -4,10 +4,11 @@
             <div class="number-box">NV01</div>
             <h1>ようこそ</h1>
             <h2>Welcome to Navi Jisho</h2>
-            <div class='yellow-bar'>
+            <div class='red-bar'>
                 <div class="double-arrows">
                     <i class="fas fa-angle-double-right"></i>
                 </div>
+                <div class="white-circle"></div>
                 <div class="double-arrows">
                     <i class="fas fa-angle-double-right"></i>
                 </div>
@@ -15,24 +16,39 @@
             <h3>Navi Jisho is the easy to navigate Japanese dictionary.</h3>
             <h3>Search for a word using the search bar.</h3>
             <div class="circles-area">
-                <div class="circle" style='border-color: #A60606;'>
-                    <p>What?</p>
+                <div class='circle-group'>
+                    <a class='link' href="#what-section">
+                        <div class="circle" style='border-color: #A60606;'>
+                            <p>What?</p>
+                        </div>
+                    </a>
+
+                    <a class='link' href="#how-section">
+                        <div class="circle" style='border-color: #F4C008;'>
+                            <p>How?</p>
+                        </div>
+                    </a>
                 </div>
-                <div class="circle" style='border-color: #F4C008;'>
-                    <p>How?</p>
-                </div>
-                <div class="circle" style='border-color: #07831A;'>
-                    <p>Who?</p>
-                </div>
-                <div class="circle" style='border-color: #0663A6;'>
-                    <p>Thanks</p>
+
+                <div class='circle-group'>
+                    <a class='link' href="#who-section">
+                        <div class="circle" style='border-color: #07831A;'>
+                            <p>Who?</p>
+                        </div>
+                    </a>
+
+                    <a class='link' href="#thanks-section">
+                        <div class="circle" style='border-color: #0663A6;'>
+                            <p>Thanks</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="bottom-welcome">
             <hr />
 
-            <div class="text-section">
+            <div id='what-section' class="text-section">
                 <div class="info-title">
                     <Bubble bgcolor='#A60606'/>
                     <h3>What is Navi Jisho?</h3>
@@ -42,7 +58,7 @@
                 </div>
             </div>
 
-            <div class="text-section">
+            <div id='how-section' class="text-section">
                 <div class="info-title">
                     <Bubble bgcolor='#F4C008'/>
                     <h3>How do you use Navi Jisho?</h3>
@@ -58,7 +74,7 @@
                 </div>
             </div>
             
-            <div class="text-section">
+            <div id='who-section' class="text-section">
                 <div class="info-title">
                     <Bubble bgcolor='#07831A'/>
                     <h3>Who made Navi Jisho?</h3>
@@ -68,7 +84,7 @@
                 </div>
             </div>
             
-            <div class="text-section">
+            <div id='thanks-section' class="text-section">
                 <div class="info-title">
                     <Bubble bgcolor='#0663A6'/>
                     <h3>Special Thanks</h3>
@@ -121,7 +137,7 @@ export default {
 }
 
 .top-welcome {
-    height: calc(100vh - 8rem); /* Change the rem value to change positioning */
+    min-height: calc(100vh - 8rem); /* Change the rem value to change positioning */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,11 +156,23 @@ export default {
     font-weight: bold;
 }
 
+@media (max-width: 600px) {
+    .number-box {
+        display: none;
+    }
+}
+
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin: 0 1rem 0 1rem;
     position: relative;
     top: 15px;
+}
+
+@media (max-width: 450px) {
+    h1{
+        font-size: 3rem;
+    }
 }
 
 h2 {
@@ -155,27 +183,40 @@ h3 {
     margin: 0 1rem 0 1rem;
 }
 
-.yellow-bar {
+.red-bar {
     height: 30px;
     width: 100vw;
-    background-color: #F4C008;
+    background-color: #A60606;
     display: flex;
     justify-content: space-between;
-    margin: 1rem 0 1rem 0;
+    align-items: center;
+    margin: 1rem 0;
 }
 
 .double-arrows {
     color: white;
     font-size: 1.5rem;
-    margin: 0 10vw 0 10vw;
+    margin: 0.4rem 10vw 0 10vw;
+}
+
+.white-circle{
+    background-color: #FAFAFA;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
 }
 
 .circles-area {
     display: flex;
     gap: 2rem;
-    margin: 1rem 2rem 0 2rem;
+    margin: 1rem 3rem 0 3rem;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.circle-group {
+    display: flex;
+    gap: 2rem;
 }
 
 .circle {
@@ -189,16 +230,36 @@ h3 {
     font-weight: bold;
 }
 
+.link {
+    all: unset;
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.circle:hover {
+    animation: zoom-in 0.4s forwards;
+    cursor: pointer;
+}
+
 hr {
     margin-top: 5rem; /* Change height above line */
     width: 70%;
-    background-color: #F4C008;
+    background-color: #A60606;
     border: none;
     height: 2px;
 }
 
 .bottom-welcome {
     margin: 0 10vw;
+    overflow-wrap: break-word;
 }
 
 .info-title {
