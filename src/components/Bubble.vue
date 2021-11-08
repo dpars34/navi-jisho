@@ -62,7 +62,7 @@ export default {
     }
 }
 
-.bubble:hover > .tooltip {
+.bubble:hover, .bubble:active > .tooltip {
     animation: tooltip 0.4s forwards;
     animation-delay: 0.5s;
     display: inline-block;
