@@ -26435,7 +26435,7 @@ var require_streams2 = __commonJS({
   }
 });
 
-// functions/api.js
+// functions/api.mjs
 var import_express = __toModule(require_express2());
 var import_serverless_http = __toModule(require_serverless_http());
 
@@ -27501,7 +27501,7 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
   });
 }
 
-// functions/api.js
+// functions/api.mjs
 var app = (0, import_express.default)();
 var router = import_express.default.Router();
 router.get("/search/:query", async (req, res) => {
