@@ -48,7 +48,7 @@ export default {
         window.scrollTo(0, 0)
         this.loading = true
         this.failed = false;
-        const response = await fetch(`https://www.navijisho.org//.netlify/functions/api/search/${query}`)
+        const response = await fetch(`https://www.navijisho.org/.netlify/functions/api/search/${query}`)
         const { data } = await response.json()
 
         if (data.length === 0) {
