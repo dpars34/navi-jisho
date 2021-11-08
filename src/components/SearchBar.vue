@@ -1,7 +1,7 @@
 <template>
         <div class="search-bar-wrapper">
-            <form @submit="handleSubmit">
-                <input v-model="query" class="search-bar" name="search-bar" type="text" autocomplete="off" placeholder="Search for something...">
+            <form @submit="handleSubmit" action=".">
+                <input v-model="query" class="search-bar" name="search-bar" type="seach" autocomplete="off" placeholder="Search for something...">
                 <button class="search-button" type="submit"><i class="fas fa-arrow-right"></i></button>
             </form>
             <div class="underline"></div>
