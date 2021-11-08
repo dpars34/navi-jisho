@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "node-fetch": "^3.0.0",
     "serverless-http": "^2.7.0",
     "vue": "^3.0.0"
   },
@@ -39,5 +40,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "type": "module"
 }
