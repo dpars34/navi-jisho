@@ -1,5 +1,5 @@
 <template>
-    <div :style=style :class="`bubble ${tooltip ? 'hoverable' : ''}`">
+    <div :style=style :class="`bubble ${tooltip ? 'hoverable' : ''}`" @click="bubbleClick">
         <div class="inner-text">
             {{text}}
         </div>
@@ -28,6 +28,21 @@ export default {
 
         tooltipStyle () {
             return `border: solid 1px ${this.bgcolor};`
+        }
+    },
+    methods: {
+        // SO THAT USERS CAN CLICK WHEN USING A MOBILE DEVICE
+        bubbleClick () {
+
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                
+                const toolTip = document.querySelector('.tooltip')
+    
+                toolTip.style.animation = "tooltip 0.4s forwards"
+                toolTip.style.animationDelay = "0.5s"
+                toolTip.style.display = "inline-block;"
+            }
+
         }
     }
 }
