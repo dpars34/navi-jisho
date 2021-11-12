@@ -81,6 +81,7 @@
                 </div>
                 <div class="text-area">
                     <p>Navi Jisho was created by Daniel Parsons (that's me), a web developer living in Japan.</p>
+                    <p>You can find all my work at: <a href="https://www.danpdev.com/">danpdev.com</a>.</p>
                 </div>
             </div>
             
