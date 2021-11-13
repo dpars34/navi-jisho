@@ -35,8 +35,8 @@ export default {
         bubbleClick () {
 
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                
-                const toolTip = document.querySelector('.tooltip')
+
+                const toolTip = document.getElementsByClassName('tooltip')
     
                 toolTip.style.animation = "tooltip 0.4s forwards"
                 toolTip.style.animationDelay = "0.5s"
